@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پروفایل کاربری | No. Q</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+    <!-- ===== Navigation (uses your scripts.js) ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="logo" onclick="window.location.href='base.html'">
+            <div class="logo-icon">N</div>
+            <div class="logo-text">No.<span>Q</span></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="base.html">خانه</a></li>
+            <li><a href="course_list.html">دوره‌ها</a></li>
+            <li><a href="User_dashboard.html">داشبورد</a></li>
+            <li><a href="feedback.html">نظرات</a></li>
+            <li><a href="contact_us.html">تماس</a></li>
+            <li><a href="profile_alter.html" class="active">پروفایل</a></li>
+        </ul>
+        <div class="nav-auth" id="navAuth">
+            <!-- populated by scripts.js -->
+        </div>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===== Profile Content (centered) ===== -->
+    <div class="profile-page">
+        <div class="profile-card">
+            <div class="card-header">
+                <h1>👤 پروفایل کاربری</h1>
+                <p>اطلاعات شخصی خود را به‌روز کنید</p>
+            </div>
+
+            <!-- Avatar Upload -->
+            <div class="avatar-section">
+                <div class="avatar-preview" id="avatarPreview">
+                    <span class="avatar-placeholder" id="avatarPlaceholder">؟</span>
+                    <img id="avatarImage" style="display:none;" alt="avatar" />
+                    <div class="avatar-overlay">تغییر عکس</div>
+                </div>
+                <div class="avatar-upload">
+                    <span class="upload-label">📤 آپلود تصویر پروفایل</span>
+                    <div class="upload-hint">
+                        <span class="file-types">فایل های مجاز: GIF, PNG, JPG</span>
+                        <span>— حداکثر ۵ مگابایت</span>
+                    </div>
+                    <div class="upload-btn-wrapper">
+                        <button class="btn btn-outline btn-sm" type="button">انتخاب فایل</button>
+                        <input type="file" id="avatarInput" accept=".gif,.jpg,.jpeg,.png" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Form -->
+            <form class="profile-form" id="profileForm">
+                <!-- Name Row (Last Name / First Name) -->
+                <div class="name-row">
+                    <div class="form-group">
+                        <label for="lastName">نام خانوادگی</label>
+                        <div class="input-with-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <input type="text" id="lastName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">نام</label>
+                        <div class="input-with-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <input type="text" id="firstName" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">ایمیل</label>
+                    <div class="input-with-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <input type="email" id="email" />
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone">شماره همراه</label>
+                    <div class="input-with-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <input type="tel" id="phone" />
+                    </div>
+                </div>
+
+                <!-- About Me -->
+                <div class="form-group">
+                    <label for="about">درباره من</label>
+                    <div class="input-with-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="top:18px; transform:none;">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        <textarea id="about" rows="4" placeholder="پاراگراف درباره خودتان..."></textarea>
+                    </div>
+                    <div class="char-count" id="aboutCharCount">۰ / ۵۰۰</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-submit">
+                    💾 ثبت تغییرات
+                </button>
+
+                <div class="save-success" id="saveSuccess">
+                    ✅ اطلاعات با موفقیت ذخیره شد!
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="base.html">خانه</a>
+            <a href="course_list.html">دوره‌ها</a>
+            <a href="User_dashboard.html">داشبورد</a>
+            <a href="feedback.html">نظرات</a>
+            <a href="contact_us.html">تماس</a>
+            <a href="profile_alter.html">پروفایل</a>
+        </div>
+        <p>© ۲۰۲۶ No. Q – تمامی حقوق محفوظ است.</p>
+    </footer>
+
+    <!-- ===== Scripts ===== -->
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

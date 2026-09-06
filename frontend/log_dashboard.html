@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Logs Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="dashboard-card">
+    <div class="header" style="display:flex; align-items:center; justify-content:space-between;">
+        <h1>🔐 System Logs (Superadmin Only)</h1>
+        <a class="btn btn-outline btn-sm" href="admin_dashboard.html">← Back to Admin Panel</a>
+    </div>
+
+    <div class="filter-bar">
+        <div class="filter-group">
+            <label>Search Logs</label>
+            <input type="text" id="searchInput" placeholder="Search message or logger...">
+        </div>
+
+        <div class="filter-group">
+            <label>Log Level</label>
+            <select id="levelSelect">
+                <option value="">All Levels</option>
+                <option value="DEBUG">DEBUG</option>
+                <option value="INFO">INFO</option>
+                <option value="WARNING">WARNING</option>
+                <option value="ERROR">ERROR</option>
+                <option value="CRITICAL">CRITICAL</option>
+            </select>
+        </div>
+
+        <div class="filter-group" style="flex-direction: row;">
+            <button onclick="filterLogTable()">Apply Filter</button>
+            <button class="clear" onclick="resetLogFilters()">Clear</button>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Logger</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody id="logTableBody"></tbody>
+    </table>
+
+    <div class="empty-state" id="emptyState" style="display:none;">
+        No logs found matching your filters.
+    </div>
+
+    <div class="pagination">
+        <span id="logPaginationSummary">Showing 0 of 0 entries</span>
+        <div class="pagination-buttons">
+            <button id="logPrevBtn" disabled onclick="goToLogPage(currentLogPage - 1)">Previous</button>
+            <button id="logNextBtn" disabled onclick="goToLogPage(currentLogPage + 1)">Next</button>
+        </div>
+    </div>
+</div>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
